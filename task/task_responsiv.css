@@ -1,0 +1,175 @@
+@media(max-width: 1368px) {
+    /* #header {
+        position: unset;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 80px;
+    } */
+
+    /* .H1 {
+        margin-top: 110px !important;
+    } */
+    #pushedSubtasks{
+        height: 70px;
+    }
+}
+
+
+@media(max-width: 1132px) {
+    body {
+        min-height: 926px !important;
+    }
+
+    #div_body {
+        overflow: hidden;
+        position: unset;
+        height: 1324px;
+    }
+
+    .clearBTN {
+        display: none !important;
+    }
+
+    .createBTN {
+        width: 183px !important;
+        height: 56px !important;
+        font-size: 21px;
+    }
+
+    .bottom {
+        align-items: center !important;
+        margin-left: 16px !important;
+        margin-right: 16px !important;
+        margin-top: 113px !important;
+        text-align: center;
+        height: 100px !important;
+    }
+
+    .innerContent {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .roomdivider {
+        display: none;
+    }
+   
+    .leftside,
+    .container-title,
+    .input-title-text,
+    .input-field,
+    .container-description,
+    .container-assigned,
+    .contactPosition,
+    .dropdown,
+    .rightside,
+    .container-input-date,
+    .input-field-date,
+    .container-input-prio,
+    .priobtns,
+    .container-input-category,
+    .container-input-subtask,
+    .input-field-subtask {
+        width: 100% !important;
+    }
+
+    .innerContent {
+        width: 99% !important;
+        margin-bottom: 1px;
+    }
+
+    .input-field-date {
+        width: calc(100% - 28px) !important;
+    }
+
+    /* .input-field-subtask {
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100% !important;
+        justify-content: space-between !important;
+    } */
+
+    .input-field-description {
+        width: calc(100% - 21px) !important;
+    }
+
+    /* .H1 {
+        margin-left: 16px !important;
+        margin-top: 48px !important;
+        height: 112px !important;
+        margin-bottom: 12px !important;
+    } */
+
+    #header_content_position {
+        min-width: 320px;        
+    }
+}
+
+@media(max-width: 420px) {
+    .priobtn {
+        flex-direction: column;
+    }
+    
+    .input-field-button {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    #content{
+        padding: 8px;
+    }
+
+    .bottom {
+        height: 126px !important;
+        margin-top: 113px !important;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* .H1 {
+        height: 80px !important;
+        margin-top: 20px !important;
+    } */
+
+    .subtaskInput {
+        width: 100% !important;
+    }
+
+    .container-clear-create {
+        width: 100%;
+    }
+    
+    .createBTN {
+        width: 100% !important;
+    }
+}
+
+@keyframes successfully_message {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    .headline_title {
+        font-size: 26px !important;
+    }
+
+    .side_menu_bg {
+        width: 25% !important;
+    }
+
+    .side_menu_bg.selected {
+        width: 25% !important;
+    }
+    #content {
+        padding: 8px !important;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login_responsiv.css">
+    <link rel="icon" href="../img/join_logo_black.png">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="img-logo">
+                <div class="img-logo-animation-bg"></div>
+                <img class="img-logo-animation" src="img/join_logo_black.png">
+            </div>
+        </div>
+
+
+        <form id="login-form" class="login" action="summary/" onsubmit="return login()">
+            <h1>Log in</h1>
+            <div class="login-inputs">
+                <div class="login-email-password">
+                    <input id="email" class="input-field" type="email" placeholder="Email" required>
+                    <div style="position: relative;">
+                        <input id="password" class="input-field" type="password" placeholder="Password"
+                            onkeyup="checkInputPassword()">
+                        <div class="password-visibility" style="display: none;" onclick="hidePassword()"></div>
+                        <div id="alert-message" class="alert-message" style="display: none;">Wrong password Ups! Try again.</div>
+                    </div>
+                </div>
+                <div class="login-remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+
+            </div>
+            <div class="login-buttons">
+                <button class="button-primary" type="submit">Log in</button>
+                <button class="button-secondary button-guest" onclick="handleGuestLogin();">Guest Log in</button>
+            </div>
+        </form>
+
+        <div class="nav-sign-up">
+            <p>Not a Join user?</p>
+            <a class="button-primary" href="/sign_up">Sign up</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a class="link" href="jura_no_login/privacy.html">Privacy Policy</a>
+        <a class="link" href="jura_no_login/legal.html">Legal Notice</a>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="data.js"></script>
+    <script src="protection.js"></script>
+</body>
+
+</html>

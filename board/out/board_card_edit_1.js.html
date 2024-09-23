@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board_card_edit_1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board_card_edit_1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This function shows the editable version of a card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function editTask(i) {
+
+
+    cardPopup.innerHTML = /* html */`
+        &lt;div class="scrollableCardPopup">
+        &lt;div class="editTaskCloseImage">
+            &lt;img onclick="closePopup()" class="closeImage" src="./img/close.png">
+        &lt;/div>
+        &lt;div class="editTextAndInput">
+            &lt;p class="titleText">Title&lt;/p>
+            &lt;input id="editTitle${i}" class="editTitleInput editInputs" placeholder="Enter a title" type="text">
+        &lt;/div>
+        &lt;div class="editDescriptionAndTextarea">
+            &lt;p class="descriptionText">Description&lt;/p>
+            &lt;textarea id="editDescription${i}" class="editDescriptionTextarea editInputs" placeholder="Enter a description" name="" id="" cols="30" rows="10">&lt;/textarea>
+        &lt;/div>
+        &lt;div class="editDueDateAndInput">
+            &lt;p class="dueDateText">Due Date&lt;/p>
+            &lt;input id="editDueDate${i}" class="editDueDateInput editInputs" placeholder="dd/mm/yyyy" type="text" onfocus="(this.type='date')" onblur="(this.type='text'); convertDateFormat(this)">
+        &lt;/div>
+        &lt;div class="editPriorityAndButtons">
+            &lt;p class="priorityText">Priority&lt;/p>
+            &lt;div class="priorityButtons">
+                &lt;button onclick="editPrioButtonUrgent(${i})" id="urgentButton${i}" class="priorityButtonUrgent priorityButton">Urgent &lt;img id="urgentImage${i}" class="prioImages" src="./img/urgent.png">&lt;/button>
+                &lt;button onclick="editPrioButtonMedium(${i})" id="mediumButton${i}" class="priorityButtonMedium priorityButton">Medium &lt;img id="mediumImage${i}" class="prioImages" src="./img/medium.png">&lt;/button>
+                &lt;button onclick="editPrioButtonLow(${i})" id="lowButton${i}" class="priorityButtonLow priorityButton">Low &lt;img id="lowImage${i}" class="prioImages" src="./img/low.png">&lt;/button> 
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="editAssignedToAndInput">
+            &lt;p class="editAssignedToText">Assigned To&lt;/p>
+            &lt;div class="editAssignedToInputAndArrow">
+                &lt;input oninput="findContact(${i})" id="editAssignedTo" class="editAssignedToInput editInputs" placeholder="Select contacts to assign" type="text">
+                &lt;img onclick="openDropdownMenu()" id="arrow" class="dropdownArrow" src="./img/dropdownArrow.png">
+            &lt;/div>
+            &lt;div id="dropdownMenu">&lt;/div>
+            &lt;div id="editInitials${i}">&lt;/div>
+        &lt;/div>
+        &lt;div class="editSubtasksAndInput">
+            &lt;p class="editSubtasksText">Subtasks&lt;/p>
+            &lt;div class="editSubtasksInputAndPlus">
+                &lt;input onclick="focusOnNewSubtask(${i})" id="editSubtasks${i}" class="editSubtasksInput editInputs" placeholder="Add new subtask" type="text">
+                &lt;img onclick="focusOnNewSubtask(${i})" id="plus" class="plus" src="./img/plus.png">
+                &lt;div id="closeAndDone${i}" class="closeAndDone">
+                    &lt;img onclick="emptyInput(${i})" class="close" src="./img/close.png">
+                    &lt;div class="subtasksImageSpacer">&lt;/div>
+                    &lt;img onclick="createNewSubtask(${i})" class="done" src="./img/done.png">
+                &lt;/div>
+            &lt;/div>
+            &lt;div id="editSubtasksList${i}">&lt;/div>
+        &lt;/div>
+        &lt;/div>
+        
+        
+        &lt;div class="editTaskOkButton">
+            &lt;button onclick="ok(${i})" id="okButton">Ok &lt;img class="checkImage" src="./img/check.png">&lt;/button>
+        &lt;/div>
+    `;
+    renderInputValues(i);
+    renderValues(i);
+    renderEditAssignedTo(i);
+    renderEditSubtasksList(i);
+    dropdownMenu(i);
+
+    document.getElementById(`editSubtasks${i}`).addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            createNewSubtask(i);
+        }
+    });
+}
+
+
+/**
+ * This function converts the date format for yyyy-mm-dd into dd/mm/yyyy
+ * 
+ * @param {string} inputElement - This is the input of the editable card popup
+ */
+function convertDateFormat(inputElement) {
+    var dateStr = inputElement.value;
+    
+    var parts = dateStr.split("-");
+    var formattedDate = parts[2] + "/" + parts[1] + "/" + parts[0];
+    
+    inputElement.value = formattedDate;
+}
+
+
+/**
+ * This function takes the value of the inputs of a stecific editable card popup
+ * 
+ * @param {number} i - This is the number of each task  
+ */
+function renderInputValues(i) {
+    document.getElementById(`editTitle${i}`).value = `${tasks[i]['title']}`;
+    document.getElementById(`editDescription${i}`).value = `${tasks[i]['description']}`;
+    document.getElementById(`editDueDate${i}`).value = `${tasks[i]['dueDate']}`;
+}
+
+
+/**
+ * This function renders and shows the buttons of each priority on the editable card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function renderValues(i) {
+    let urgentButton = document.getElementById(`urgentButton${i}`);
+    let urgentImage = document.getElementById(`urgentImage${i}`);
+    let mediumButton = document.getElementById(`mediumButton${i}`);
+    let mediumImage = document.getElementById(`mediumImage${i}`);
+    let lowButton = document.getElementById(`lowButton${i}`);
+    let lowImage = document.getElementById(`lowImage${i}`);
+
+    if (tasks[i]['prio'] === 'Urgent') {
+        urgentButton.style.backgroundColor = '#FF3D00';
+        urgentButton.style.color = 'white';
+        urgentImage.src = './img/urgentWhite.png';
+    }
+    if (tasks[i]['prio'] === 'Medium') {
+        mediumButton.style.backgroundColor = '#FFA800';
+        mediumButton.style.color = 'white';
+        mediumImage.src = './img/mediumWhite.png';
+    }
+    if (tasks[i]['prio'] === 'Low') {
+        lowButton.style.backgroundColor = '#7AE228';
+        lowButton.style.color = 'white';
+        lowImage.src = './img/lowWhite.png';
+    }
+}
+
+
+/**
+ * This function renders the initials of each person who is assigned to each task 
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function renderEditAssignedTo(i) {
+    for (let o = 0; o &lt; tasks[i]['assignedTo'].length; o++) {
+        let name = tasks[i]['assignedTo'];
+        let initials = name[o].split(' ')[0].charAt(0) + name[o].split(' ')[1].charAt(0);
+        showEditAssignedTo(initials, i, o);
+    }
+}
+
+
+/**
+ * 
+ * @param {string} initials - These are the initials of each person who is assigned to a task
+ * @param {number} i - This is the number of each task 
+ * @param {number} o - This is the number of each person who is assigned to a task
+ */
+function showEditAssignedTo(initials, i, o) {
+    let assignedTo = document.getElementById(`editInitials${i}`);
+    assignedTo.style.display = 'flex';
+    assignedTo.style.gap = '8px';
+    let backgroundColor = colorPool[o % colorPool.length];
+
+    assignedTo.innerHTML += /* html */`
+        &lt;div class="editInitials">
+            &lt;div id="initals${o}" class="popupInitials" style="background-color: ${backgroundColor};">${initials}&lt;/div>
+        &lt;/div>
+    `;
+}
+
+
+/**
+ * This function renders the subtasks of a specific editable card popup
+ * 
+ * @param {number} i - This is the number of each task  
+ */
+function renderEditSubtasksList(i) {
+    for (let p = 0; p &lt; tasks[i]['subtask'].length; p++) {
+        showEditSubtasksList(i, p);
+    }
+}
+
+
+/**
+ * This function shows the editable subtasks of an editable card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ * @param {number} p - This is the number of each subtasks for a task
+ */
+function showEditSubtasksList(i, p) {
+    let subtasks = document.getElementById(`editSubtasksList${i}`);
+
+    subtasks.innerHTML += /* html */`
+        &lt;div id="subtasksContent${p}" class="subtasksContent">
+            &lt;li>${tasks[i]['subtask'][p]}&lt;/li>
+            &lt;div class="deleteAndEdit">
+                &lt;img onclick="editSubtask(${p}, ${i})" class="editImage" src="./img/edit.png">
+                &lt;div class="subtasksImageSpacer">&lt;/div>
+                &lt;img onclick="deleteSubtask(${p}, ${i})" src="./img/delete.png">
+            &lt;/div>
+        &lt;/div>
+    `;
+}
+
+
+/**
+ * This function changes the priority of a editable card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function editPrioButtonUrgent(i) {
+    let prio = 'Urgent';
+    let urgentButton = document.getElementById(`urgentButton${i}`);
+    let urgentImage = document.getElementById(`urgentImage${i}`);
+
+    urgentButton.style.backgroundColor = '#FF3D00';
+    urgentButton.style.color = 'white';
+    urgentImage.src = './img/urgentWhite.png';
+
+    disableMediumButton(i);
+    disableLowButton(i);
+    deleteAndPushPrio(i, prio);
+}
+
+
+/**
+ * This function changes the priority of a editable card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function editPrioButtonMedium(i) {
+    let prio = 'Medium';
+    let mediumButton = document.getElementById(`mediumButton${i}`);
+    let mediumImage = document.getElementById(`mediumImage${i}`);
+
+    mediumButton.style.backgroundColor = '#FFA800';
+    mediumButton.style.color = 'white';
+    mediumImage.src = './img/mediumWhite.png';
+
+    disableUrgentButton(i);
+    disableLowButton(i);
+    deleteAndPushPrio(i, prio);
+}
+
+
+/**
+ * This function changes the priority of a editable card popup
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function editPrioButtonLow(i) {
+    let prio = 'Low';
+    let lowButton = document.getElementById(`lowButton${i}`);
+    let lowImage = document.getElementById(`lowImage${i}`);
+
+    lowButton.style.backgroundColor = '#7AE228';
+    lowButton.style.color = 'white';
+    lowImage.src = './img/lowWhite.png';
+
+    disableUrgentButton(i);
+    disableMediumButton(i);
+    deleteAndPushPrio(i, prio);
+}
+
+
+/**
+ * This function checks if the priority of a editable card popup gets disabled
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function disableUrgentButton(i) {
+    let urgentButton = document.getElementById(`urgentButton${i}`);
+    let urgentImage = document.getElementById(`urgentImage${i}`);
+    let mediumImage = document.getElementById(`mediumImage${i}`);
+    let lowImage = document.getElementById(`lowImage${i}`);
+
+    if (mediumImage.src.includes('/img/mediumWhite.png') || lowImage.src.includes('/img/lowWhite.png')) {
+        setUrgentButtonStyle(urgentButton, urgentImage);
+    }
+}
+
+
+/**
+ * This function disables the priority of a editable card popup
+ * 
+ * @param {string} button - This is the priority button
+ * @param {string} image - This is the image of the priority
+ */
+function setUrgentButtonStyle(button, image) {
+    button.style.backgroundColor = 'white';
+    button.style.color = 'black';
+    image.src = './img/urgent.png';
+}
+
+
+/**
+ * This function checks if the priority of a editable card popup gets disabled
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function disableMediumButton(i) {
+    let mediumButton = document.getElementById(`mediumButton${i}`);
+    let mediumImage = document.getElementById(`mediumImage${i}`);
+    let urgentImage = document.getElementById(`urgentImage${i}`);
+    let lowImage = document.getElementById(`lowImage${i}`);
+
+    if (urgentImage.src.includes('/img/urgentWhite.png') || lowImage.src.includes('/img/lowWhite.png')) {
+        setMediumButtonStyle(mediumButton, mediumImage);
+    }
+}
+
+
+/**
+ * This function disables the priority of a editable card popup
+ * 
+ * @param {string} button - This is the priority button
+ * @param {string} image - This is the image of the priority
+ */
+function setMediumButtonStyle(button, image) {
+    button.style.backgroundColor = 'white';
+    button.style.color = 'black';
+    image.src = './img/medium.png';
+}
+
+
+/**
+ * This function checks if the priority of a editable card popup gets disabled
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function disableLowButton(i) {
+    let lowButton = document.getElementById(`lowButton${i}`);
+    let lowImage = document.getElementById(`lowImage${i}`);
+    let urgentImage = document.getElementById(`urgentImage${i}`);
+    let mediumImage = document.getElementById(`mediumImage${i}`);
+
+    if (urgentImage.src.includes('/img/urgentWhite.png') || mediumImage.src.includes('/img/mediumWhite.png')) {
+        setLowButtonStyle(lowButton, lowImage);
+    }
+}
+
+
+/**
+ * This function disables the priority of a editable card popup
+ * 
+ * @param {string} button - This is the priority button
+ * @param {string} image - This is the image of the priority
+ */
+function setLowButtonStyle(button, image) {
+    button.style.backgroundColor = 'white';
+    button.style.color = 'black';
+    image.src = './img/low.png';
+}
+
+
+/**
+ * This function changes the priority of a task
+ * 
+ * @param {number} i - This is the number of each task 
+ * @param {string} prio - This is the name of the priority
+ */
+function deleteAndPushPrio(i, prio) {
+    tasks[i]['prio'] = null;
+    tasks[i]['prio'] = prio;
+}
+
+
+/**
+ * This function allows to search for a specific person
+ * 
+ * @param {number} i - This is the number of each task 
+ */
+function findContact(i) {
+    document.getElementById('dropdownMenu').innerHTML = '';
+
+    let search = document.getElementById('editAssignedTo').value;
+    search = search.toLowerCase();
+
+    for (let n = 0; n &lt; contactData.length; n++) {
+        renderContact(search, n, i);
+    }
+}
+
+
+/**
+ * This function renders the filtered persons
+ * 
+ * @param {string} search - This is the value of the input of the dropdown menu
+ * @param {number} n - This is the number of each person in the JSON contactData
+ * @param {number} i - This is the number of each task
+ */
+function renderContact(search, n, i) {
+    if (contactData[n]['name'].toLowerCase().includes(search)) {
+        showContact(n, i);
+    }
+}
+
+
+/**
+ * This function shows the dropdown menu
+ * 
+ * @param {number} n - This is the number of each person in the JSON contactData
+ * @param {number} i - This is the number of each task 
+ */
+function showContact(n, i) {
+    let arrow = document.getElementById('arrow');
+    let dropdownContainer = document.getElementById('dropdownMenu');
+    dropdownContainer.style.display = 'flex';
+
+    if (arrow.src.includes("/img/dropdownArrow.png")) {
+        arrow.src = "./img/liftupArrow.png";
+    }
+
+    showDropdownMenu(n, i);
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#alreadySelectedContact">alreadySelectedContact</a></li><li><a href="global.html#checkContent">checkContent</a></li><li><a href="global.html#checkEmptySection">checkEmptySection</a></li><li><a href="global.html#closePopup">closePopup</a></li><li><a href="global.html#content">content</a></li><li><a href="global.html#convertDateFormat">convertDateFormat</a></li><li><a href="global.html#createNewSubtask">createNewSubtask</a></li><li><a href="global.html#deleteAndPushPrio">deleteAndPushPrio</a></li><li><a href="global.html#deleteSubtask">deleteSubtask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#disableLowButton">disableLowButton</a></li><li><a href="global.html#disableMediumButton">disableMediumButton</a></li><li><a href="global.html#disableUrgentButton">disableUrgentButton</a></li><li><a href="global.html#doneEditSubtask">doneEditSubtask</a></li><li><a href="global.html#editPrioButtonLow">editPrioButtonLow</a></li><li><a href="global.html#editPrioButtonMedium">editPrioButtonMedium</a></li><li><a href="global.html#editPrioButtonUrgent">editPrioButtonUrgent</a></li><li><a href="global.html#editSubtask">editSubtask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#findContact">findContact</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#ok">ok</a></li><li><a href="global.html#renderAlreadySelectedContacts">renderAlreadySelectedContacts</a></li><li><a href="global.html#renderAssignedTo">renderAssignedTo</a></li><li><a href="global.html#renderCategoryColor">renderCategoryColor</a></li><li><a href="global.html#renderCheckboxImage">renderCheckboxImage</a></li><li><a href="global.html#renderContact">renderContact</a></li><li><a href="global.html#renderContent">renderContent</a></li><li><a href="global.html#renderDropdownInitials">renderDropdownInitials</a></li><li><a href="global.html#renderDropdownMenu">renderDropdownMenu</a></li><li><a href="global.html#renderEditAssignedTo">renderEditAssignedTo</a></li><li><a href="global.html#renderEditSubtasksList">renderEditSubtasksList</a></li><li><a href="global.html#renderInputValues">renderInputValues</a></li><li><a href="global.html#renderPopupAssignedTo">renderPopupAssignedTo</a></li><li><a href="global.html#renderPopupCategoryColor">renderPopupCategoryColor</a></li><li><a href="global.html#renderPopupPrio">renderPopupPrio</a></li><li><a href="global.html#renderPopupSubtasks">renderPopupSubtasks</a></li><li><a href="global.html#renderPrio">renderPrio</a></li><li><a href="global.html#renderProgress">renderProgress</a></li><li><a href="global.html#renderProgressbar">renderProgressbar</a></li><li><a href="global.html#renderSelectedContact">renderSelectedContact</a></li><li><a href="global.html#renderSubtasks">renderSubtasks</a></li><li><a href="global.html#renderTask">renderTask</a></li><li><a href="global.html#renderValues">renderValues</a></li><li><a href="global.html#selectedContact">selectedContact</a></li><li><a href="global.html#setLowButtonStyle">setLowButtonStyle</a></li><li><a href="global.html#setMediumButtonStyle">setMediumButtonStyle</a></li><li><a href="global.html#setUrgentButtonStyle">setUrgentButtonStyle</a></li><li><a href="global.html#showAleardySelectedContact">showAleardySelectedContact</a></li><li><a href="global.html#showAssignedTo">showAssignedTo</a></li><li><a href="global.html#showCardPopup">showCardPopup</a></li><li><a href="global.html#showContact">showContact</a></li><li><a href="global.html#showContent">showContent</a></li><li><a href="global.html#showDropDownInitials">showDropDownInitials</a></li><li><a href="global.html#showDropdownMenu">showDropdownMenu</a></li><li><a href="global.html#showEditAssignedTo">showEditAssignedTo</a></li><li><a href="global.html#showEditSubtasksList">showEditSubtasksList</a></li><li><a href="global.html#showPopupAssignedTo">showPopupAssignedTo</a></li><li><a href="global.html#showPopupSubtasks">showPopupSubtasks</a></li><li><a href="global.html#showTask">showTask</a></li><li><a href="global.html#unselectContact">unselectContact</a></li><li><a href="global.html#updateDescription">updateDescription</a></li><li><a href="global.html#updateDueDate">updateDueDate</a></li><li><a href="global.html#updateTitle">updateTitle</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue May 14 2024 12:33:12 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

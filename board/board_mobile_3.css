@@ -1,0 +1,103 @@
+@media only screen and (max-width: 412px) {
+    .overflow-y {
+        width: 332px;
+    }
+
+    .emptySection {
+        width: 1650px;
+    }
+
+    .fs_40 {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 382px) {
+    .overflow-y {
+        width: 302px;
+    }
+
+    .emptySection {
+        width: 1650px;
+    }
+}
+
+@media only screen and (max-width: 352px) {
+    .overflow-y {
+        width: 272px;
+    }
+
+    .emptySection {
+        width: 1650px;
+    }
+
+    #cardPopup {
+        gap: 14px;
+    }
+
+    .popupCategory {
+        font-size: 11px;
+        height: 28px;
+        padding-inline: 16px;
+    }
+
+    .popupTitle {
+        font-size: 29px;
+    }
+
+    .popupDescription,
+    .date,
+    .priorityAndImage,
+    .name,
+    ::-webkit-input-placeholder,
+    .titleText,
+    .descriptionText,
+    .dueDateText,
+    .editAssignedToText,
+    .editSubtasksText,
+    .editTitleInput,
+    .editDescriptionTextarea,
+    .editDueDateInput,
+    .editAssignedToInput,
+    .editSubtasksInput,
+    .dropdownContact,
+    .priorityText,
+    .priorityButton,
+    .addTaskInputPlaceholder {
+        font-size: 12px;
+    }
+
+    .prioImages {
+        width: 13px;
+    }
+
+    .editTitleInput,
+    .editDescriptionTextarea,
+    .editDueDateInput,
+    .editAssignedToInput,
+    .editSubtasksInput {
+        height: 32px;
+    }
+
+    .dueDate,
+    .priority,
+    .assignedToText {
+        font-size: 12px;
+    }
+
+    .popupInitials {
+        font-size: 10px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media only screen and (max-width: 332px) {
+    .overflow-y {
+        width: 242px;
+    }
+
+    .emptySection {
+        width: 1650px;
+    }
+}

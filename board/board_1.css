@@ -1,0 +1,381 @@
+body {
+    font-family: inter;
+    cursor: default;
+}
+
+#content {
+    padding: 0;
+}
+
+#div_body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#div_body::-webkit-scrollbar {
+    display: none;
+}
+
+#background,
+#addTaskBackground {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000052;
+    z-index: 9999;
+}
+
+header {
+    position: fixed;
+    top: 134px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+    height: 260px;
+    padding-inline: 64px;
+    background-color: #F6F7F8;
+    z-index: 1;
+}
+
+h1 {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 61px;
+    color: #000000;
+}
+
+.categoryAndArrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoryAndArrows img {
+    width: 24px;
+}
+
+.cardArrows {
+    display: none;
+}
+
+.mobileAddButton,
+.responsiveAddButton {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    padding: 3px;
+    background-color: rgba(42, 54, 71, 1);
+    cursor: pointer;
+}
+
+.mobileAddButton:hover,
+.responsiveAddButton:hover {
+    background-color: #28ABE2;
+    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+.mobileAddImage {
+    width: 20px;
+    height: 20px;
+}
+
+.inputAndButton {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+#input {
+    position: relative;
+    width: 312px;
+    height: 30px;
+    padding: 8px;
+    padding-inline: 16px;
+    border-radius: 10px;
+    border: 1px solid #A8A8A8;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.inputSearchImage {
+    margin-left: -91px;
+    z-index: 999;
+}
+
+::-webkit-input-placeholder,
+.titleText,
+.descriptionText,
+.dueDateText,
+.editAssignedToText,
+.editSubtasksText {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#searchButton {
+    position: absolute;
+    margin-left: 304px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 32px;
+    height: 32px;
+    border-radius: 90px;
+    z-index: 999;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #00000010;
+}
+
+#addButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 48px;
+    gap: 4px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #2A3647;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 21px;
+    transition: 0.1s;
+}
+
+#addButton:hover {
+    cursor: pointer;
+    background-color: #28ABE2;
+    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+#sections {
+    display: flex;
+    justify-content: space-evenly;    
+    margin-bottom: 40px;
+    padding-inline: 64px;
+    margin-top: 34px;
+}
+
+#toDoSection,
+#inProgressSection,
+#awaitFeedbackSection,
+#doneSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 252px;
+    margin-top: 80px;
+}
+
+#toDoHeader,
+#inProgressHeader,
+#awaitFeedbackHeader,
+#doneHeader {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+    margin-top: 110px;
+    z-index: 999;
+}
+
+#doneHeader {
+    height: 28px;
+}
+
+p {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#addToDo,
+#addInProgress,
+#addAwaitFeedback {
+    width: 25px;
+    height: 25px;
+    background: url(./img/plusbutton.svg) no-repeat;
+    background-color: #00000000;
+    border: 0;
+    cursor: pointer;
+}
+
+#addToDo:hover,
+#addInProgress:hover,
+#addAwaitFeedback:hover {
+    background: url(./img/plusbuttonblue.svg) no-repeat;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: inherit;
+    margin-top: 150px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: rotate(3deg);
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: 27px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding-inline: 16px;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.titleAndDescription {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #2A3647;
+}
+
+.description {
+    font-weight: 400;
+    font-size: 16px;
+    color: #A8A8A8;
+}
+
+.cardBottom,
+.progressbarAndSubtask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emptySection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    margin-top: 150px;
+    border-radius: 10px;
+    border: 1px dashed #A8A8A8;
+    background-color: #E7E7E7;
+    color: #A8A8A8;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.progressbar {
+    display: flex;
+    width: 128px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: rgba(244, 244, 244, 1);
+}
+
+.progress {
+    height: 8px;
+    border-radius: 16px;
+    background-color: rgba(69, 137, 255, 1);
+}
+
+.boardSubtask {
+    display: flex;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.assignedTo {
+    display: flex;
+    margin-left: 10px;
+}
+
+.initials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 45px;
+    border: 1px solid white;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 0 -10px;
+}
+
+.scrollableCardPopup {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 646px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollableCardPopup::-webkit-scrollbar {
+    display: none;
+}
+
+.progressComment {
+    display: none;
+    justify-content: center;
+    font-size: 13px;
+    padding: 4px;
+    margin-top: -23.5px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #00000052;
+    color: white;
+    z-index: 1;
+}
+
+.progressbarAndSubtask:hover+.progressComment {
+    display: flex;
+}
+
+.drag-area-highlight {
+    border: 1px dashed #A8A8A8;
+    border-radius: 24px;
+    background-color: #0000000f;
+}
+
+#toDoHighlight,
+#inProgressHighlight,
+#awaitFeedbackHighlight,
+#doneHighlight {
+    display: flex;
+    height: 214px;
+    border-radius: 24px;
+    border: 1px dashed #A8A8A8;
+    background-color: #0000000f;
+}

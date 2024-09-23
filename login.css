@@ -1,0 +1,360 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+label {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 61px;
+    padding-bottom: 16px;
+    position: relative;
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    bottom: 0;
+    width: 150px;
+    border-bottom: 3px solid #29ABE2;
+    ;
+    border-radius: 8px;
+}
+
+.button-primary {
+    height: 49px;
+    border: none;
+    font-size: 21px;
+    font-weight: 700;
+    width: 110px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-primary:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.button-primary:focus {
+    background-color: #091931;
+}
+
+.button-secondary {
+    height: 48px;
+    border: none;
+    font-size: 21px;
+    font-weight: 700;
+    width: 177px;
+    background-color: white;
+    color: #2A3647;
+    border: 1px solid #2A3647;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-secondary:hover {
+    border: 2px solid #29ABE2;
+    color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.button-secondary:focus {
+    border: 1px solid #091931;
+    color: #091931;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.button-guest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #A8A8A8;
+    transition: all 125ms ease-in-out;
+}
+
+.link:hover {
+    color: #29ABE2;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.link:focus {
+    color: #29ABE2;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.input-field {
+    width: 422px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    transition: all 200ms ease-in-out;
+    height: 48px;
+    text-indent: 21px;
+}
+
+.input-field::placeholder {
+    color: #D1D1D1;
+}
+
+.input-field:focus {
+    outline: 1px solid #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
+.input-danger {
+    outline: 1px solid #FF001F;
+    border: 1px solid #FF001F;
+}
+
+input[type=email] {
+    background: url(/img/mail.png) no-repeat;
+    background-position: right 21px top 50%;
+}
+
+input[type=password] {
+    background: url(/img/lock.png) no-repeat;
+    background-position: right 21px top 50%;
+}
+
+input[type=text] {
+    background: url(/img/visibility.png) no-repeat;
+    background-position: right 21px top 50%;
+}
+
+.password-visibility {
+    position: absolute;
+    width: 42px;
+    height: 48px;
+    right: 14px;
+    top: 1px;
+    cursor: pointer;
+}
+
+.alert-message {
+    color: #FF8190;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+
+
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-logo {
+    width: 100px;
+    height: 122px;
+    margin-left: 77px;
+}
+
+.img-logo-animation {
+    width: 274px;
+    height: 334px;
+    content: url(img/splash_screen.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -167px;
+    margin-left: -137px;
+    z-index: 1000;
+
+    animation: logo-animation 500ms forwards 200ms;
+}
+
+.img-logo-animation-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #F6F7F8;
+    z-index: 900;
+
+    animation: logo-animation-bg 1s forwards 500ms;
+}
+
+@keyframes logo-animation {
+    from {
+        width: 274px;
+        height: 334px;
+        content: url(img/splash_screen.png);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -167px;
+        margin-left: -137px;
+        z-index: 999;
+    }
+
+    to {
+        position: absolute;
+        top: 80px;
+        left: 77px;
+        width: 100px;
+        height: 122px;
+        margin: 0;
+        content: url(img/join_logo_black.png);
+    }
+}
+
+@keyframes logo-animation-bg {
+    from {
+        background-color: #F6F7F8;
+    }
+
+    to {
+        background-color: unset;
+        display: none;
+    }
+}
+
+.nav-sign-up {
+    width: 279px;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    margin-top: 40px;
+    margin-right: 77px;
+}
+
+.nav-sign-up button {
+    width: 91px;
+    font-size: 16px;
+}
+
+.login {
+    position: absolute;
+    left: 50%;
+    height: 50%;
+    margin-left: -326px;
+    margin-top: -246px;
+
+    width: 652px;
+    height: 493px;
+    margin-top: 265.5px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.login-inputs {
+    width: 422px;
+    height: 196px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-email-password {
+    height: 152px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.login-remember-me {
+    width: 422px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 39px;
+}
+
+.login-remember-me input[type=checkbox] {
+    appearance: none;
+    background-image: url(img/checkbox_uncheck.png);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.login-remember-me input[type=checkbox]:hover {
+    background-image: url(img/checkbox_hover_uncheck.png);
+}
+
+.login-remember-me input[type='checkbox']:checked {
+    appearance: none;
+    background-image: url(img/checkbox_check.png);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.login-remember-me input[type='checkbox']:checked:hover {
+    background-image: url(img/checkbox_hover_check.png);
+}
+
+.login-buttons {
+    display: flex;
+    gap: 35px;
+}
+
+
+
+
+
+.footer {
+    width: 246px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+
+    position: relative;
+    bottom: -665px;
+    padding-bottom: 20px;
+}

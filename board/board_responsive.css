@@ -1,0 +1,271 @@
+@media only screen and (max-width: 1446px) {
+    #sections {
+        margin-bottom: 150px;
+    }
+
+    #header_logo {
+        display: block;
+        width: 32px;
+        height: 39px;
+    }
+
+    #nav_left {
+        display: none;
+    }
+
+    #nav_right_img {
+        display: none;
+    }
+
+    .side_logo {
+        display: none;
+    }
+
+    #content {
+        position: relative;
+        top: 140px;
+        scrollbar-width: none;
+    }
+}
+
+@media only screen and (max-width: 1214px) {
+    header {
+        height: 250px;
+        padding-inline: 40px;
+    }
+
+    h1 {
+        font-size: 54px;
+    }
+
+    #input {
+        height: 26px;
+        font-size: 18px;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 18px;
+    }
+
+    #addButton {
+        width: 156px;
+        height: 44px;
+        font-size: 19px;
+    }
+
+    #addImage {
+        width: 26px;
+    }
+
+    #sections {
+        padding-inline: 40px;
+        margin-top: 24px;
+    }
+
+    .emptySection {
+        font-size: 14px;
+    }
+
+    #toDoSection,
+    #inProgressSection,
+    #awaitFeedbackSection,
+    #doneSection {
+        width: 219px;
+    }
+
+    .content {
+        width: 218px;
+    }
+
+    #toDoHeader,
+    #inProgressHeader,
+    #awaitFeedbackHeader,
+    #doneHeader {
+        width: 218px;
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .category {
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+
+    .titleAndDescription {
+        margin-bottom: 18px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .progressbar {
+        width: 112px;
+        height: 6px;
+    }
+
+    .boardSubtask {
+        font-size: 10px;
+    }
+
+    .cardBottom {
+        margin-top: -6px;
+    }
+
+    .initials {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .prioImage {
+        width: 16px;
+    }
+
+    .progressComment {
+        font-size: 11px;
+        padding: 3px;
+        margin-top: -19px;
+    }
+
+    #toDoHighlight,
+    #inProgressHighlight,
+    #awaitFeedbackHighlight,
+    #doneHighlight {
+        height: 190px;
+    }
+}
+
+@media (max-width: 1132px) {
+    #div_body {
+        height: auto !important;
+        padding-bottom: 140px;
+    }
+}
+
+@media only screen and (max-width: 1034px) {
+    header {
+        height: 220px;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    #input {
+        height: 24px;
+        font-size: 16px;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 16px;
+    }
+
+    #addButton {
+        width: 146px;
+        height: 42px;
+        font-size: 17px;
+    }
+
+    #addImage {
+        width: 24px;
+    }
+
+    #sections {
+        margin-top: -6px;
+    }
+
+    .emptySection {
+        font-size: 12px;
+    }
+
+    #toDoSection,
+    #inProgressSection,
+    #awaitFeedbackSection,
+    #doneSection {
+        width: 191px;
+    }
+
+    .content {
+        width: 190px;
+    }
+
+    #toDoHeader,
+    #inProgressHeader,
+    #awaitFeedbackHeader,
+    #doneHeader {
+        width: 190px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .category {
+        margin-bottom: 16px;
+        font-size: 12px;
+        height: 23px;
+        padding-inline: 12px;
+    }
+
+    .titleAndDescription {
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .progressbar {
+        width: 96px;
+        height: 6px;
+    }
+
+    .boardSubtask {
+        font-size: 8px;
+    }
+
+    .cardBottom {
+        margin-top: -8px;
+    }
+
+    .initials {
+        width: 26px;
+        height: 26px;
+        font-size: 8px;
+    }
+
+    .prioImage {
+        width: 14px;
+    }
+
+    .progressComment {
+        font-size: 10px;
+        padding: 2px;
+        margin-top: -16px;
+    }
+
+    #toDoHighlight,
+    #inProgressHighlight,
+    #awaitFeedbackHighlight,
+    #doneHighlight {
+        height: 170px;
+    }
+}
+
+@media only screen and (max-height: 950px) {
+    #cardPopup {
+        max-height: 75%;
+    }
+}

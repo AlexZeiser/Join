@@ -1,0 +1,79 @@
+@media (min-width: 320px) and (max-width: 399px) {
+    #done_div {
+        height: 80px;
+        width: 130px;
+    }
+
+    #date_div {
+        width: 55%;
+    }
+
+    #date {
+        font-size: 16px;
+    }
+
+    #todo_div {
+        height: 80px;
+        width: 130px;
+    }
+
+    #urgent_div {
+        width: 40%;
+        gap: 23px;
+    }
+
+    .fourth_under_container {
+        height: 80px;
+        width: 80px;
+    }
+
+    #todo {
+        font-size: 16px;
+    }
+
+    #done {
+        font-size: 16px;
+    }
+
+    #urgent {
+        font-size: 16px;
+    }
+
+    #number_in_board {
+        font-size: 16px;
+    }
+
+    #number_in_progress {
+        font-size: 16px;
+    }
+
+    #number_awaiting_feedback {
+        font-size: 16px;
+    }
+
+    #vertical_div_two {
+        height: 40px;
+    }
+
+    #first_container {
+        gap: 10px;
+    }
+
+    #second_container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: center;
+        gap: 0;
+    }
+
+    #content {
+        padding: 20px;
+    }
+
+    #third_under_container {
+        gap: 0;
+        justify-content: space-between;
+    }
+}

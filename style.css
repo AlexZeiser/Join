@@ -1,0 +1,346 @@
+@font-face {
+    font-family: Inter;
+    src: url(font/Inter.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+}
+
+body {
+    background-color: #F6F7F8;
+}
+
+#div_body {
+    position: absolute;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    height: 96px;
+    padding: 20px 40px 20px 150px;
+    gap: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    position: fixed;
+    left: 232px;
+    right: 0;
+    z-index: 999;
+}
+
+#nav_left {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+#nav_right {
+    display: flex;
+    gap: 16px;
+}
+
+#nav_right a {
+    text-decoration: none;
+    color: #29ABE2;
+}
+
+#nav_right_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#nav_right_img:hover {
+    transform: scale(1.3);
+}
+
+#nav_right_menu {
+    border-radius: 50%;
+    border: solid 2px black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #29ABE2;
+    cursor: pointer;
+}
+
+#nav_right_menu:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#header_content_position {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 232px;
+}
+
+#required {
+    color: red;
+    font-size: 30px;
+}
+
+#side {
+    width: 232px;
+    padding: 64px 0px 64px 0px;
+    gap: 0px;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+#content {
+    padding: 50px;
+    padding-bottom: 0;
+    position: relative;
+    top: 140px;
+    scrollbar-width: none;
+}
+
+#join_logo_white {
+    width: 100.03px;
+    height: 121.97px;
+    top: 64px;
+    left: 65.98px;
+}
+
+#footer {
+    padding: 243px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+#footer a {
+    text-decoration: none;
+    color: #CDCDCD;
+}
+
+#side_menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: inherit;
+}
+
+#side_menu:hover {
+    color: #29ABE2;
+}
+
+#side_menu a {
+    text-decoration: none;
+    color: #CDCDCD;
+}
+
+.side_undermenu {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.side_menu_text_position {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#dlph_position {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 60px;
+}
+
+.side_menu_bg {
+    height: 40px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.side_menu_bg:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#jura_container {
+    width: 150px;
+    height: fit-content;
+    position: fixed !important;
+    top: 100px !important;
+    right: 16px !important;
+    border-radius: 20px 0px 20px 20px;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    font-size: 16px;
+    font-weight: 400;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+.jura_undercontainer {
+    width: 100%;
+    text-decoration: none;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    border-radius: 10px;
+}
+
+.jura_undercontainer:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ENDE kleine Fenster oben rechts, wo man sich ausloggen kann usw..*/
+
+.side_menu_bg.selected {
+    background-color: #091931;
+    color: white;
+}
+
+.side_undermenu.selected {
+    height: 40px;
+    display: flex;
+}
+
+.side_menu_bg img {
+    width: 30px;
+    height: 30px;
+}
+
+/* summary */
+.side_undermenu.selected .summary_icon_normal {
+    display: none;
+}
+
+.side_undermenu.selected .summary_icon_other {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .summary_icon_normal {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .summary_icon_other {
+    display: none;
+}
+
+/* addtask */
+.side_undermenu.selected .addtask_icon_normal {
+    display: none;
+}
+
+.side_undermenu.selected .addtask_icon_other {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .addtask_icon_normal {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .addtask_icon_other {
+    display: none;
+}
+
+/* board */
+.side_undermenu.selected .board_icon_normal {
+    display: none;
+}
+
+.side_undermenu.selected .board_icon_other {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .board_icon_normal {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .board_icon_other {
+    display: none;
+}
+
+/* contacts */
+.side_undermenu.selected .contacts_icon_normal {
+    display: none;
+}
+
+.side_undermenu.selected .contacts_icon_other {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .contacts_icon_normal {
+    display: flex;
+    margin-right: 20px;
+}
+
+.side_undermenu .contacts_icon_other {
+    display: none;
+}
+
+.back_container {
+    display: block;
+    width: 37px;
+    height: 37px;
+    position: fixed;
+    top: 188px;
+    right: 40px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.back_container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+}
+
+.back {
+    display: block;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+}
+
+.headline_title {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 61px;
+}

@@ -1,0 +1,17 @@
+.link {
+    text-decoration: none;
+    color: #29ABE2;
+    transition: all 125ms ease-in-out;
+}
+
+.link:hover {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.link:focus {
+    color: #29ABE2;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 16px;
+}

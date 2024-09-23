@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="task_responsiv.css">
+    <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="../@media.css">
+
+    <script src="../data.js"></script>
+    <link rel="icon" href="../img/join_logo_black.png">
+    <title>Add Task</title>
+</head>
+
+<body onload="sharedInit();initAddTasks()">
+    <!-- Das ist ein Template für alle andere Seiten -->
+    <div id="div_body">
+        <div id="side">
+            <div>
+                <img id="join_logo_white" src="../img/join_logo_white.png" alt="Join Logo">
+            </div>
+            <div id="side_menu">
+                <div class="side_menu_bg">
+                    <a href="../summary" class="side_undermenu">
+                        <img class="summary_icon_normal menu_iconsWH" src="../img/menu_summary_icon.png" alt="Summary">
+                        <img class="summary_icon_other menu_iconsWH" src="../img/menu_summary_icon_white.png"
+                            alt="Summary">
+                        <span class="side_menu_text_position">Summary</span>
+                    </a>
+
+                </div>
+                <div class="side_menu_bg selected">
+                    <a href="../task" class="side_undermenu">
+                        <img class="addtask_icon_normal menu_iconsWH" src="../img/menu_addtask_icon.png" alt="Add Task">
+                        <img class="addtask_icon_other menu_iconsWH" src="../img/menu_addtask_icon_white.png"
+                            alt="Add Task">
+                        <span class="side_menu_text_position">Add Task</span>
+                    </a>
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../board" class="side_undermenu">
+                        <img class="board_icon_normal menu_iconsWH" src="../img/menu_board_icon.png" alt="Board">
+                        <img class="board_icon_other menu_iconsWH" src="../img/menu_board_icon_white.png" alt="Board">
+                        <span class="side_menu_text_position">Board</span>
+                    </a>
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../contacts" class="side_undermenu">
+                        <img class="contacts_icon_normal menu_iconsWH" src="../img/menu_contacts_icon.png"
+                            alt="Contacts">
+                        <img class="contacts_icon_other menu_iconsWH" src="../img/menu_contacts_icon_white.png"
+                            alt="Contacts">
+                        <span class="side_menu_text_position">Contacts</span>
+                    </a>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="side_menu_bg">
+                    <a href="../jura/privacy.html" id="priv_pol" class="side_undermenu">Privacy Policy</a>
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../jura/legal.html" id="leg_not" class="side_undermenu">Legal Notice</a>
+                </div>
+            </div>
+        </div>
+        <div id="header_content_position">
+            <div id="header">
+                <div id="nav_left">
+                    Kanban Project Management Tool
+                </div>
+                <div id="header_logo_div">
+                    <img id="header_logo" src="../img/join_logo_black.png" alt="Header Logo">
+                </div>
+                <div id="nav_right">
+                    <a href="../help/index.html" id="nav_right_img">
+                        <img src="../img/help_icon.png" alt="Summary">
+                    </a>
+                    <div id="nav_right_menu" onclick="jura_window();">
+                    </div>
+                </div>
+            </div>
+            <div id="jura_container">
+                <a href="../help/index.html" class="jura_undercontainer" id="help_link">Help</a>
+                <a href="../jura/privacy.html" class="jura_undercontainer">Privacy Policy</a>
+                <a href="../jura/legal.html" class="jura_undercontainer">Legal Notice</a>
+                <a href="#" onclick="logout()" class="jura_undercontainer">Log out</a>
+            </div>
+
+            <div class="content" id="content">                
+                <div class="headline_title">Add Task</div>
+                <div class="innerContent">
+                    <div class="task_successfully_div" id="task_successfully_div" style="display: none;">
+                        <span class="task_successfully_message">
+                            Task successfully created
+                        </span>
+                    </div>
+                    <div class="leftside">
+                        <div class="container-title">
+                            <span class="input-title-text">Title<span class="redStar">*</span></span>
+                            <input id="titleInput" class="input-field" placeholder="Enter a title" type="text"
+                                oninput="createBtnEnable(),alarmInput()">
+                            <div class="danger-text" style="display: none;">This field is required</div>
+                        </div>
+                        <div class="container-description">
+                            <span class="input-title-text">Description</span>
+                            <textarea id="descriptionInput" class="input-field input-field-description"
+                                placeholder="Enter a Description"></textarea>
+                        </div>
+                        <div class="container-assigned contactPosition">
+                            <span class="input-title-text">Assigned to</span>
+                            <div id="dropdownContent" class="dropdown">
+                                <button class="input-field input-field-button dropbtn"
+                                    onclick="dropDownContacts()"><input oninput="searchContacts()"
+                                        id="filterContatcsInput" type="text" class="noDisplay"><span
+                                        id="selectSpan">Select
+                                        contacts to assign </span><img id="arrow" src="img/arrow down.svg"
+                                        alt=""></button>
+                                <div id="contacts_dropdown" class="contactsDropdown scroll-style">
+                                    <div id="availableContacts"></div>
+
+                                </div>
+                                <div class="chosenInitals scroll-style" id="chosenInitals"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roomdivider"></div>
+
+                    <div class="rightside">
+                        <div class="container-input-date" class="datepicker">
+                            <span class="input-title-text">Due date<span class="redStar">*</span></span>
+                            <input type="date" id="date" class="input-field input-field-date" name="date"
+                                onchange="inputDateColorChange()" oninput="createBtnEnable(),alarmInput()">
+                            <div class="danger-text" style="display: none; margin-top: 8px;">This field is required
+                            </div>
+                        </div>
+                        <div class="container-input-prio" class="prio">
+                            <span class="input-title-text">Prio</span>
+                            <div class="priobtns">
+                                <div id="urgentbtn" onclick="prioUrgent()" class="priobtn">Urgent <img id="highicon"
+                                        src="img/Prio high icon.svg" alt=""></div>
+                                <div id="midbtn" onclick="prioMed()" class="priobtn"style="background: rgb(255, 168, 0); color: rgb(255, 255, 255); box-shadow: unset;">Medium <img id='midicon'
+                                        src="img/Prio media icon clicked.svg" alt=""></div>
+                                <div id="lowbtn" onclick="prioLow()" class="priobtn">Low <img id="lowicon"
+                                        src="img/Prio low icon.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="container-input-category">
+                            <span class="input-title-text">Category<span class="redStar">*</span></span>
+                            <div class="dropdown" onclick="dropDownCategory()">
+                                <button id="dropBtnCategory" class="dropbtn input-field input-field-category"><span
+                                        id="categorySpan">Select
+                                        tasks
+                                        category</span><img id="arrow_category" src="img/arrow down.svg"
+                                        alt=""></button>
+                                <div id="dropdown-content" class="dropdown">
+                                    <div class="availableCategory" id="availableCategory">
+                                        <div onclick="technicalTask()" class="choseCategory">Technical Task</div>
+                                        <div onclick="userStory()" class="choseCategory">User Story</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="categoryDangerText" class="danger-text" style="display: none; margin-top: 8px;">This
+                            field is required
+                        </div>
+                        <div class="container-input-subtask">
+                            <span class="input-title-text">Subtasks</span>
+                            <div class="input-field-subtask">
+                                <input id="subtask_input" class="input-field" placeholder="Add new subtask" on>
+                                <img onclick="pushSubtask()" src="img/subtaskPlus.svg" alt="">
+                            </div>
+                            <div id="pushedSubtasks" class="pushedSubtasks scroll-style"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+
+
+            <div class="bottom">
+                <div class="field-required"><span class="redStar">*</span>This field is required</div>
+                <div class="container-clear-create">
+                    <div onclick="clearForm()" class="clearBTN" id="clearBTN">Clear X</div>
+                    <button id="alarmBTN" class="createBTN" onclick="alarmInput()">
+                        <span>Create Task</span>
+                        <img src="img/createCheck.svg" alt="">
+                        <button id="createBTN" class="noDisplay createBTN " onclick="createTask()">
+                            <span>Create Task</span>
+                            <img src="img/createCheck.svg" alt="">
+                        </button>
+                </div>
+
+            </div>
+
+
+
+            <script src="taskleft1.js"></script>
+            <script src="taskright2.js"></script>
+            <script src="createtask3.js"></script>
+            <script src="event.js"></script>
+            <script src="../protection.js"></script>
+</body>

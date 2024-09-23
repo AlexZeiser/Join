@@ -1,0 +1,313 @@
+#cardPopup {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    width: 525px;
+    max-height: 75%;
+    padding-inline: 40px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    z-index: 999;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#cardPopup::-webkit-scrollbar {
+    display: none;
+}
+
+.popupCategoryAndClose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+}
+
+.popupCategory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    padding-inline: 24px;
+    border-radius: 8px;
+    background-color: rgba(0, 56, 255, 1);
+    color: white;
+}
+
+.closeImage {
+    width: 32px;
+    height: 32px;
+}
+
+.closeImage:hover {
+    background-color: #00000010;
+    border-radius: 45px;
+    cursor: pointer;
+}
+
+.popupTitle {
+    font-weight: 700;
+    font-size: 61px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.popupDescription,
+.date,
+.priorityAndImage,
+.name {
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.popupDueDate,
+.popupPriority {
+    display: flex;
+    gap: 25px;
+}
+
+.dueDate,
+.priority,
+.assignedToText {
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(42, 54, 71, 1);
+}
+
+.priorityAndImage {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.initialsAndName {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-inline: 16px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.popupInitials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.popupAssignedTo,
+.popupSubtasks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.imageAndText {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: fit-content;
+    padding-inline: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.imageAndText:hover {
+    border-radius: 10px;
+    background-color: #00000010;
+}
+
+.checkboxImage {
+    width: 24px;
+    height: 24px;
+}
+
+.checkboxImage:hover {
+    cursor: pointer;
+}
+
+.popupSubtaskText {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.popupBottom {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+
+.deleteButtonImage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 81px;
+    border: 0;
+    cursor: pointer;
+    background-color: white;
+    background-image: url('./img/deleteButton.svg');
+}
+
+.deleteButtonImage:hover {
+    width: 83px;
+    background-image: url('./img/deleteButtonBlue.svg');
+}
+
+.editButtonImage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 62px;
+    border: 0;
+    cursor: pointer;
+    background-color: white;
+    background-image: url('./img/editButton.svg');
+}
+
+.editButtonImage:hover {
+    background-image: url('./img/editButtonBlue.svg');
+}
+
+.buttonSpacer {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(209, 209, 209, 1);
+}
+
+.editTaskCloseImage,
+.editTaskOkButton {
+    display: flex;
+    justify-content: end;
+}
+
+.editInputs {
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.editTitleInput {
+    height: 48px;
+    padding-inline: 21px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.editInputs::placeholder {
+    color: #D1D1D1;
+}
+
+.editTextAndInput,
+.editDescriptionAndTextarea,
+.editDueDateAndInput,
+.editPriorityAndButtons,
+.editAssignedToAndInput,
+.editSubtasksAndInput {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editSubtasksAndInput {
+    margin-bottom: 16px;
+}
+
+.editDescriptionTextarea {
+    max-height: 120px;
+    min-height: 120px;
+    padding-inline: 16px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 21px;
+    resize: none;
+}
+
+.editDueDateInput {
+    height: 48px;
+    padding-inline: 16px;
+    font-size: 20px;
+}
+
+.priorityText {
+    font-weight: 700;
+    font-size: 19px;
+    color: rgba(66, 82, 110, 1)
+}
+
+.priorityButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.priorityButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 136.67px;
+    height: 56px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.priorityButton:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.editAssignedToInput,
+.editSubtasksInput {
+    width: -webkit-fill-available;
+    height: 48px;
+    padding-inline: 16px;
+    font-size: 20px;
+}
+
+.editAssignedToInput:hover {
+    border: 1px solid black;
+}
+
+.editAssignedToInputAndArrow,
+.editSubtasksInputAndPlus {
+    display: flex;
+    align-items: center;
+}
+
+#okButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 89px;
+    height: 57px;
+    border-radius: 10px;
+    border: 0;
+    padding: 16px;
+    margin-top: 20px;
+    background-color: rgba(42, 54, 71, 1);
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+#okButton:hover {
+    background-color: #28ABE2;
+    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}

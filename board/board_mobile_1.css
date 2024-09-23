@@ -1,0 +1,339 @@
+@media only screen and (max-width: 922px) {
+    #div_body {
+        height: 1724px;
+    }
+
+    header {
+        height: 154px;
+        top: 120px;
+        padding-top: 34px;
+        padding-inline: 40px;
+    }
+
+    .h1AndButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: -webkit-fill-available;
+    }
+
+    h1 {
+        font-size: 61px;
+    }
+
+    .cardArrows {
+        display: flex;
+    }
+
+    .inputAndButton {
+        display: flex;
+        justify-content: center;
+        width: -webkit-fill-available;
+    }
+
+    #input {
+        height: 26px;
+        font-size: 20px;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 20px;
+    }
+
+    #addButton {
+        display: none;
+    }
+
+    .responsiveAddButton {
+        display: flex;
+    }
+
+    #searchButton {
+        margin-left: 230px;
+    }
+
+    #sections {
+        flex-direction: column;
+        gap: 30px;
+        width: 91vw;
+        padding-inline: 40px;
+        margin-top: 24px;
+    }
+
+    .emptySection {
+        width: 345px;
+        margin-top: 26px;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+    #toDoSection,
+    #inProgressSection,
+    #awaitFeedbackSection,
+    #doneSection {
+        width: 91vw;
+        margin-top: -100px;
+    }
+
+    #toDoSection {
+        margin-top: 50px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        margin-top: 26px;
+        margin-bottom: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #toDoHeader,
+    #inProgressHeader,
+    #awaitFeedbackHeader,
+    #doneHeader {
+        position: static;
+        width: -webkit-fill-available;
+        margin-top: 70px;
+        margin-bottom: -30px;
+        margin-left: 12px;
+        margin-right: 12px;
+        z-index: 0;
+    }
+
+    #toDoHeader {
+        margin-top: 120px;
+    }
+
+    #addToDo,
+    #addInProgress,
+    #addAwaitFeedback {
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+    }
+
+    #addToDo:hover,
+    #addInProgress:hover,
+    #addAwaitFeedback:hover {
+        background: url(./img/plusbuttonblue.svg) no-repeat;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+    }
+
+    .overflow-y {
+        display: flex;
+        justify-content: start;
+        width: 842px;
+        height: 300px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .overflow-y::-webkit-scrollbar {
+        display: none;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .card {
+        width: 212px;
+        height: fit-content;
+    }
+
+    .category {
+        height: 27px;
+        padding-inline: 16px;
+        margin-bottom: 24px;
+        font-size: 16px;
+    }
+
+    .titleAndDescription {
+        margin-bottom: 24px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .progressbar {
+        width: 128px;
+        height: 8px;
+    }
+
+    .boardSubtask {
+        font-size: 12px;
+    }
+
+    .cardBottom {
+        margin-top: 0;
+    }
+
+    .initials {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .prioImage {
+        width: 18px;
+    }
+
+    .progressComment {
+        font-size: 13px;
+        padding: 4px;
+        margin-top: -23.5px;
+    }
+
+    #toDoHighlight,
+    #inProgressHighlight,
+    #awaitFeedbackHighlight,
+    #doneHighlight {
+        width: 244px;
+    }
+}
+
+@media only screen and (max-width: 892px) {
+    .overflow-y {
+        width: 842px;
+    }
+}
+
+@media only screen and (max-width: 862px) {
+    .overflow-y {
+        width: 782px;
+    }
+
+    .emptySection {
+        width: 386px;
+    }
+}
+
+@media only screen and (max-width: 832px) {
+    .overflow-y {
+        width: 752px;
+    }
+
+    .emptySection {
+        width: 410px;
+    }
+}
+
+@media only screen and (max-width: 802px) {
+    .overflow-y {
+        width: 722px;
+    }
+
+    .emptySection {
+        width: 438px;
+    }
+}
+
+@media only screen and (max-width: 772px) {
+    header {
+        flex-direction: column;
+        padding-bottom: 18px;
+    }
+
+    #searchButton {
+        margin-left: 304px;
+    }
+
+    #sections {
+        margin-left: -20px;
+    }
+
+    .overflow-y {
+        width: 692px;
+    }
+
+    .mobileAddButton {
+        display: flex;
+    }
+
+    .responsiveAddButton {
+        display: none;
+    }
+
+    .emptySection {
+        width: 469px;
+    }
+
+    #cardPopup {
+        width: 67%;
+        max-height: 75%;
+    }
+}
+
+@media only screen and (max-width: 742px) {
+    .overflow-y {
+        width: 662px;
+    }
+
+    .emptySection {
+        width: 506px;
+    }
+}
+
+@media only screen and (max-width: 712px) {
+    .overflow-y {
+        width: 632px;
+    }
+
+    .emptySection {
+        width: 548px;
+    }
+}
+
+@media only screen and (max-width: 682px) {
+    .overflow-y {
+        width: 602px;
+    }
+
+    .emptySection {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 652px) {
+    .overflow-y {
+        width: 572px;
+    }
+
+    .emptySection {
+        width: 659px;
+    }
+
+    .priorityButton {
+        width: 131.67px;
+        height: 51px;
+    }
+
+    .priorityButtons {
+        gap: 8px;
+    }
+}
+
+@media only screen and (max-width: 622px) {
+    .overflow-y {
+        width: 542px;
+    }
+
+    .emptySection {
+        width: 733px;
+    }
+
+    .priorityButton {
+        width: 126.67px;
+        height: 46px;
+    }
+}

@@ -1,0 +1,365 @@
+#content {
+    margin: 0;
+    padding: 0;
+}
+#contacts_content {
+    display: flex;
+}
+#first_contact_container {
+    background-color: white;
+    width: 500px;
+    height: calc(100vh - 155px);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #A8A8A8 white;
+}
+.div_contact {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.contact_initials {
+    border-radius: 50%;
+    border: solid 2px white;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    aspect-ratio: 1 / 1;
+
+}
+.div_contact:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.div_contact.selected {
+    background-color: #2A3647;
+    cursor: pointer;
+}
+.div_contact.selected .contact_name {
+    color: white;
+}
+#first_contact_under_container {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.span_email {
+    color: #29ABE2;
+    cursor: pointer;
+}
+#second_contact_container {
+    display: flex;
+    flex: 1;
+}
+#button_container {
+    /* background-color: white; */
+    justify-content: center;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    /* padding: 20px; */
+}
+#button_new_contact {
+    width: 350px;
+    height: 55px;
+    border-radius: 10px;
+    border: unset;
+    padding: 12px 16px 12px 16px;
+    background-color: #2A3647;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-size: 22px;
+}
+#button_new_contact:hover {
+    background-color: #29ABE2;
+    color: white;
+    border: unset;
+}
+#second_contact_container {
+    display: flex;
+    flex-direction: column;
+}
+#second_contact_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+}
+#second_contact_container {
+    display: flex;
+    flex-direction: column;
+    margin: 60px;
+    gap: 40px;
+}
+
+#vertikal_div_four {
+    border: solid 1px #29ABE2;
+    height: 30px;
+}
+#better_team {
+    font-size: 24px;
+}
+#name_div_small {
+    background-color: #FF7A00;
+    color: white;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 50px;
+    border: solid 3px white;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.4);
+    aspect-ratio: 1 / 1;
+}
+#name_div_big {
+    font-size: 35px;
+    
+}
+#second_contact_infos {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+#edit_delete_div {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+#menu_edit_delete_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+}
+#name_big_edit_delete_div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#email_div {
+    display: flex;
+    flex-direction: column;
+}
+#email_optionen {
+    cursor: pointer;
+    color: #29ABE2;
+}
+#email_optionen a {
+    cursor: pointer;
+    color: #29ABE2;
+    text-decoration: none;
+}
+#phone_optionen {
+    cursor: pointer;
+}
+#phone_optionen a {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+#email_div span {
+    margin-bottom: 10px;
+}
+#phone_div {
+    display: flex;
+    flex-direction: column;
+}
+#phone_div span {
+    margin-bottom: 10px;
+}
+#first_info_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 54px;
+}
+#second_info_container {
+    font-size: 24px;
+}
+#third_info_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+#edit_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-right: 18px;
+    cursor: pointer;
+}
+#edit_div:hover {
+    border-color: #29ABE2;
+    color: #29ABE2;
+}
+#edit_div img {
+    width: 24px;
+    height: 24px;
+}
+#delete_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+#delete_div:hover {
+    border-color: #29ABE2;
+    color: #29ABE2;
+}
+#delete_div img {
+    width: 24px;
+    height: 24px;
+    gap: 10px;
+}
+#new_contact_container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+#new_contact_div {
+    width: 1100px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#new_contact_div_title {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+#new_contact_div_title img {
+    width: 64px;
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+}
+#new_contact_div_title h2 {
+    color: white;
+    font-size: 50px;
+}
+#new_contact_div_title span {
+    color: white;
+    font-size: 24px;
+}
+#new_contact_div_position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A3647;
+    width: 400px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#new_contact_div_infos_position {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    padding-bottom: 150px;
+}
+#new_contact_div_infos_content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.close_button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+#profil_image_optionen {
+    width: 120px;
+    height: 120px;
+}
+#new_contact_content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+#inputs_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 999;
+}
+#inputs_container input {
+    padding: 12px 21px 12px 21px;
+    height: 20px;
+    width: 300px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+}
+#inputs_container input::placeholder {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+}
+.input_icon {
+    position: relative;
+}
+input[required] {
+    border-color: red;
+}
+.icon_position {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+}
+.buttons_div {
+    display: flex;
+    gap: 40px;
+}
+.buttons_optionen {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 22px;
+}

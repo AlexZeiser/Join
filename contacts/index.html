@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../@media.css">
+    
+    <link rel="stylesheet" href="../contacts/contacts.partone.css">
+    <link rel="stylesheet" href="../contacts/contacts.parttwo.css">
+    <link rel="stylesheet" href="../contacts/contacts@media.css">
+    <script src="../data.js"></script>
+    <script src="contacts.js"></script>
+    <link rel="icon" href="../img/join_logo_black.png">
+    <title>Contacts</title>
+</head>
+
+<body onload="init(); sharedInit();">    
+    <div id="div_body">
+        <div id="side">
+            <div>
+                <img id="join_logo_white" src="../img/join_logo_white.png" alt="Join Logo">
+            </div>
+            <div id="side_menu">
+                <div class="side_menu_bg">
+                    <a href="../summary" class="side_undermenu">
+                        <img class="summary_icon_normal menu_iconsWH" src="../img/menu_summary_icon.png" alt="Summary">
+                        <img class="summary_icon_other menu_iconsWH" src="../img/menu_summary_icon_white.png"
+                            alt="Summary">
+                        <span class="side_menu_text_position">Summary</span>
+                    </a>
+
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../task" class="side_undermenu">
+                        <img class="addtask_icon_normal menu_iconsWH" src="../img/menu_addtask_icon.png" alt="Add Task">
+                        <img class="addtask_icon_other menu_iconsWH" src="../img/menu_addtask_icon_white.png"
+                            alt="Add Task">
+                        <span class="side_menu_text_position">Add Task</span>
+                    </a>
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../board" class="side_undermenu">
+                        <img class="board_icon_normal menu_iconsWH" src="../img/menu_board_icon.png" alt="Board">
+                        <img class="board_icon_other menu_iconsWH" src="../img/menu_board_icon_white.png" alt="Board">
+                        <span class="side_menu_text_position">Board</span>
+                    </a>
+                </div>
+                <div class="side_menu_bg selected">
+                    <a href="../contacts" class="side_undermenu">
+                        <img class="contacts_icon_normal menu_iconsWH" src="../img/menu_contacts_icon.png"
+                            alt="Contacts">
+                        <img class="contacts_icon_other menu_iconsWH" src="../img/menu_contacts_icon_white.png"
+                            alt="Contacts">
+                        <span class="side_menu_text_position">Contacts</span>
+                    </a>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="side_menu_bg">
+                    <a href="../jura/privacy.html" id="priv_pol" class="side_undermenu">Privacy Policy</a>
+                </div>
+                <div class="side_menu_bg">
+                    <a href="../jura/legal.html" id="leg_not" class="side_undermenu">Legal Notice</a>
+                </div>
+            </div>
+        </div>
+        <div id="header_content_position">
+            <div id="header">
+                <div id="nav_left">
+                    Kanban Project Management Tool
+                </div>
+                <div id="header_logo_div">
+                    <img id="header_logo" src="../img/join_logo_black.png" alt="Header Logo">
+                </div>
+                <div id="nav_right">
+                    <a href="../help/index.html" id="nav_right_img">
+                        <img src="../img/help_icon.png" alt="Summary">
+                    </a>
+                    <div id="nav_right_menu" onclick="jura_window();">
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div id="contacts_content">
+                    <div id="first_contact_container">
+                        <div id="button_container">
+                            <button id="button_new_contact" onclick="openAddNewContactWindow();"><span
+                                    id="button_new_contact_text">Add new
+                                    contact</span><img src="../img/person_add.png" alt=""></button>
+                        </div>
+                        <div id="first_contact_under_container">
+
+                        </div>
+
+                    </div>
+
+                    <div id="second_contact_container">
+                        <div id="second_contact_title">
+                            <div class="headline_title" id="contact_title">Contacts</div>
+                            <div id="vertikal_div_four">
+                            </div>
+                            <div id="better_team"><span class="underlined-text">Better wit</span>h a team</div>
+                        </div>
+                        <div id="second_contact_infos">
+                            <div id="first_info_container">
+                                <div id="name_div_small">
+                                </div>
+                                <div id="name_big_edit_delete_div">
+                                    <div id="name_div_big">
+                                    </div>
+                                    <div id="edit_delete_div">
+                                        <div id="edit_div" onclick="editContact();">
+                                            <img class="edit_icon_normal" src="../img/edit.png" alt="edit icon">
+                                            <img class="edit_icon_other" src="../img/edit_blue.png" alt="edit icon">
+                                            <span id="edit_button">Edit</span>
+                                        </div>
+                                        <div id="delete_div" onclick="deleteContact();closeEditContactWindow();">
+                                            <img class="delete_icon_normal" src="../img/delete.png" alt="delete Icon">
+                                            <img class="delete_icon_other" src="../img/delete_blue.png"
+                                                alt="delete Icon">
+                                            <span id="delete_button">Delete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="second_info_container">
+                                <div id="contact_information">Contact Information</div>
+                                <div id="button_back_container">
+                                    <img src="../img/arrow-left-line-default.png" class="button_back"
+                                        onclick="closeContactInfo();" alt="Button-Back">
+                                </div>
+                                <div id="button_menu_container" onclick="menu_window();">
+                                    <img src="../img/menu_contact_options.png" class="button_menu" onclick=";"
+                                        alt="Menu-Button">
+                                </div>
+                                <div id="menu_edit_delete_container">
+                                    <div id="menu_edit_delete_div">
+                                        <div id="edit_div" onclick="editContact();">
+                                            <img class="edit_icon_normal" src="../img/edit.png" alt="edit icon">
+                                            <img class="edit_icon_other" src="../img/edit_blue.png" alt="edit icon">
+                                            <span id="edit_button">Edit</span>
+                                        </div>
+                                        <div id="delete_div" onclick="deleteContact();closeEditContactWindow();">
+                                            <img class="delete_icon_normal" src="../img/delete.png" alt="delete Icon">
+                                            <img class="delete_icon_other" src="../img/delete_blue.png"
+                                                alt="delete Icon">
+                                            <span id="delete_button">Delete</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="third_info_container">
+                                <div id="email_div">
+                                    <span><b>Email</b></span>
+                                    <span id="email_optionen"></span>
+                                </div>
+                                <div id="phone_div">
+                                    <span><b>Phone</b></span>
+                                    <span id="phone_optionen"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="jura_container">
+                    <a href="../help/index.html" class="jura_undercontainer" id="help_link">Help</a>
+                    <a href="../jura/privacy.html" class="jura_undercontainer">Privacy Policy</a>
+                    <a href="../jura/legal.html" class="jura_undercontainer">Legal Notice</a>
+                    <a href="#" onclick="logout()" class="jura_undercontainer">Log out</a>
+                </div>
+                <!-- add_new_contact_window -->
+                <div class="contact_successfully_div" id="new_contact_successfully_div" style="display: none;">
+                    <span class="contact_successfully_message">
+                        Contact successfully created
+                    </span>
+                </div>
+                <div class="contact_successfully_div" id="edit_contact_successfully_div" style="display: none;">
+                    <span class="contact_successfully_message">
+                        Contact successfully updated
+                    </span>
+                </div>
+                <div class="contact_successfully_div" id="delete_contact_successfully_div" style="display: none;">
+                    <span class="contact_successfully_message">
+                        Contact successfully deleted
+                    </span>
+                </div>
+                <div id="new_contact_container" style="display: none;">
+                    <div id="new_contact_div">
+                        <div id="new_contact_div_position">
+                            <div id="new_contact_div_title">
+                                <img src="../img/join_logo_white.png" alt="Logo White">
+                                <h2>Add contact</h2>
+                                <span>Tasks are better with a team!</span>
+                                <div id="horizontal_underline"></div>
+                            </div>
+                        </div>
+                        <div id="new_contact_div_infos_position">
+                            <div id="new_contact_div_infos_content">
+                                <div class="close_button">
+                                    <img id="close_button_img" src="../img/clear.png"
+                                        onclick="closeAddNewContactWindow();" alt="">
+                                    <img id="close_button_img_white" src="../img/clear_white.png"
+                                        onclick="closeAddNewContactWindow();" alt="">
+                                </div>
+                                <div id="new_contact_content">
+                                    <div class="profil_name_initialen_position">
+                                        <div class="profil_name_initialen"><img src="../img/profil.png"
+                                                alt="Profil Image"></div>
+                                    </div>
+                                    <form id="inputs_container" onsubmit="createContact(); return false;">
+                                        <div class="input_icon">
+                                            <input required type="text" id="create_name" placeholder="Max Mustermann"
+                                                pattern="[A-Za-zÄÖÜäöüß\s]{1,50} [A-Za-zÄÖÜäöüß\s]{1,50}">
+                                            <img class="icon_position" id="person_icon" src="../img/person.png"
+                                                alt="Person Icon">
+                                        </div>
+                                        <div class="input_icon">
+                                            <input required type="email" id="create_mail"
+                                                placeholder="example@example.com"
+                                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$">
+                                            <img class="icon_position" id="email_icon" src="../img/mail.png"
+                                                alt="Mail Icon">
+                                        </div>
+                                        <div class="input_icon">
+                                            <input required type="tel" id="create_phone" placeholder="+49 (0)123 456789"
+                                                pattern="^\+(?:[0-9] ?){6,14}[0-9]$">
+                                            <img class="icon_position" id="phone_icon" src="../img/call.png"
+                                                alt="Call Icon">
+                                        </div>
+                                        <div class="buttons_div">
+                                            <button class="buttons_optionen cancel_delete_button cancel_button"
+                                                onclick="closeAddNewContactWindow();">Cancel x</button>
+                                            <button class="buttons_optionen create_contact_button create_button">Create
+                                                contact<img src="../img/check.png" alt="Check Icon"></button>
+                                        </div>
+                                        <div id="new_contact_ready" class="contactReady" style="display: none;">Contact
+                                            with this email address already exists!</div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- edit_window -->
+                <div id="edit_contact_container" style="display: none;">
+                    <div id="edit_contact_div">
+                        <div id="edit_contact_div_position">
+                            <div id="edit_contact_div_title">
+                                <img src="../img/join_logo_white.png" alt="Logo White">
+                                <h2>Edit contact </h2>
+                                <div id="horizontal_underline"></div>
+                            </div>
+                        </div>
+                        <div id="edit_contact_div_infos_position">
+                            <div id="edit_contact_div_infos_content">
+                                <div class="close_button">
+                                    <img id="clear_button" src="../img/clear.png" alt=""
+                                        onclick="closeEditContactWindow();">
+                                    <img id="clear_button_white" src="../img/clear_white.png" alt=""
+                                        onclick="closeEditContactWindow();">
+                                </div>
+                                <div id="edit_contact_content">
+                                    <div class="profil_name_initialen_position">
+                                        <div id="profil_name_initialen" class="profil_name_initialen">
+                                        </div>
+                                    </div>
+
+                                    <form id="inputs_container" onsubmit="updateContact(); return false;">
+                                        <div class="input_icon">
+                                            <input required type="text" id="edit_name" placeholder="Max Mustermann"
+                                                pattern="[A-Za-zÄÖÜäöüß\s]{1,50} [A-Za-zÄÖÜäöüß\s]{1,50}">
+                                            <img class="icon_position" id="person_icon" src="../img/person.png"
+                                                alt="Person Icon">
+                                        </div>
+                                        <div class="input_icon">
+                                            <input required type="email" id="edit_mail"
+                                                placeholder="example@example.com"
+                                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$">
+                                            <img class="icon_position" id="email_icon" src="../img/mail.png"
+                                                alt="Mail Icon">
+                                        </div>
+                                        <div class="input_icon">
+                                            <input required type="tel" id="edit_phone" placeholder="+49 (0)123 456789"
+                                                pattern="^\+(?:[0-9] ?){6,14}[0-9]$">
+                                            <img class="icon_position" id="phone_icon" src="../img/call.png"
+                                                alt="Call Icon">
+                                        </div>
+                                        <div class="buttons_div">
+                                            <button class="buttons_optionen cancel_delete_button"
+                                                onclick="deleteContact();closeEditContactWindow();">Delete</button>
+                                            <button class="buttons_optionen create_contact_button">Save<img
+                                                    src="../img/check.png" alt="Check Icon"></button>
+                                        </div>
+                                        <div id="edit_contact_ready" class="contactReady" style="display: none;">Contact
+                                            with this email address already exists!</div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../protection.js"></script>
+</body>
+
+</html>
